@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -15,6 +15,9 @@ class Category extends Model
     {
         $rules = [
             'name' => 'required|string',
+            'photo' => 'required|string|url',
+            'price' => 'required',
+            'category' => '',
         ];
 
         // no list is provided
@@ -37,6 +40,9 @@ class Category extends Model
         return [
             'id' => __("Id"),
             'name' => __("Name"),
+            'photo' => __("Photo"),
+            'price' => __("Price"),
+            'category_id' => __("Category"),
         ];
     }
 }

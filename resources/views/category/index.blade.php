@@ -8,6 +8,14 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('product.index')}}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Category</a>
+                        </li>
+                    </ul>
                     <div class="card-header">{{ __('Category list') }}</div>
                     <div class="card-body">
                         <p class="mb-4">
@@ -24,8 +32,6 @@
                                 <tr>
                                     <td>{{__('Id')}}</td>
                                     <td>{{__('Name')}}</td>
-                                    <td>{{__('Created at')}}</td>
-                                    <td>{{__('Updated at')}}</td>
                                     <td></td>
                                 </tr>
                             </thead>
@@ -34,8 +40,6 @@
                             <tr>
                                 <td>{{$record['id']}}</td>
                                 <td>{{$record['name']}}</td>
-                                <td>{{$record['created_at']}}</td>
-                                <td>{{$record['updated_at']}}</td>
                                 <td class="d-flex">
                                     {{html()->a(route('category.show', ['category'=> $record['id']]), 'View')->class('btn btn-success m-1')}}
                                     {{html()->a(route('category.edit', ['category'=> $record['id']]), 'Edit')->class('btn btn-primary m-1')}}

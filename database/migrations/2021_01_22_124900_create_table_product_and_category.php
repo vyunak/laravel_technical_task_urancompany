@@ -20,12 +20,12 @@ class CreateTableProductAndCategory extends Migration
             $table->dateTime('updated_at');
         });
 
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('photo');
             $table->float('price');
-            $table->float('category_id');
+            $table->integer('category_id');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });
@@ -39,6 +39,6 @@ class CreateTableProductAndCategory extends Migration
     public function down()
     {
         Schema::dropIfExists('categories');
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 }

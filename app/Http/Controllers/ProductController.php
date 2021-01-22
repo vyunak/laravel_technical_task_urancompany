@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Product;
 use Exception;
 use Illuminate\Http\Request;
 use \Illuminate\Http\Response;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
-    public $viewDir = "category";
+    public $viewDir = "product";
 
     public function index()
     {
-        $records = Category::all();
+        $records = Product::all();
         return $this->view( "index", ['records' => $records] );
     }
 
@@ -32,58 +32,58 @@ class CategoryController extends Controller
      */
     public function store( Request $request )
     {
-        $this->validate($request, Category::validationRules());
+        $this->validate($request, Product::validationRules());
 
-        Category::create($request->all());
+        Product::create($request->all());
 
-        return redirect(route('category.index'));
+        return redirect(route('product.index'));
     }
 
     /**
      * @param Request $request
-     * @param Category $category
+     * @param Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(Request $request, Category $category)
+    public function show(Request $request, Product $product)
     {
-        return $this->view("show",['category' => $category]);
+        return $this->view("show",['product' => $product]);
     }
 
     /**
      * @param Request $request
-     * @param Category $category
+     * @param Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Request $request, Category $category)
+    public function edit(Request $request, Product $product)
     {
-        return $this->view( "edit", ['category' => $category] );
+        return $this->view( "edit", ['product' => $product] );
     }
 
     /**
      * @param Request $request
-     * @param Category $category
+     * @param Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Product $product)
     {
-        $this->validate($request, Category::validationRules());
+        $this->validate($request, Product::validationRules());
 
-        $category->update($request->all());
+        $product->update($request->all());
 
-        return redirect(route('category.index'));
+        return redirect(route('product.index'));
     }
 
     /**
      * @param Request $request
-     * @param Category $category
+     * @param Product $product
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws Exception
      */
-    public function destroy(Request $request, Category $category)
+    public function destroy(Request $request, Product $product)
     {
-        $category->delete();
-        return redirect(route('category.index'));
+        $product->delete();
+        return redirect(route('product.index'));
     }
 
     protected function view($view, $data = [])

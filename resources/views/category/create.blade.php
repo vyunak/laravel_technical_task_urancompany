@@ -9,7 +9,15 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Create') }}</div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('product.index')}}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Category</a>
+                        </li>
+                    </ul>
+                    <div class="card-header">{{ __('Create category') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))

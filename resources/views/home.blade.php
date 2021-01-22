@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{html()->a(route('category.index'), 'Category')->class('btn btn-success')}}
+                    {{html()->a(route('product.index'), 'Products')->class('btn btn-primary')}}
                 </div>
             </div>
         </div>

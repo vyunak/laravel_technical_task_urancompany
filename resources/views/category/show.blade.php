@@ -5,6 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('product.index')}}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Category</a>
+                        </li>
+                    </ul>
                     <div class="card-header">{{ __('View') }}</div>
 
                     <div class="card-body">
@@ -31,7 +39,8 @@
                             </tbody>
                         </table>
                         <p class="mt-4">
-                            <a href="{{route('category.index')}}" class="btn btn-success">{{__('Index page')}}</a>
+                            <a href="{{route('category.edit', ['category' => $category->id])}}" class="btn btn-primary">{{__('Edit')}}</a>
+                            <a href="{{route('category.index')}}" class="btn btn-success">{{__('List')}}</a>
                         </p>
                     </div>
                 </div>
